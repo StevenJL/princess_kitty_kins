@@ -677,10 +677,7 @@ Traveling,
     <div>
 
  <div id='slot_machine' style='display:block;'>
-      <span id='slot-1' ></span>
-      <b><span id='slot-2'></span></b>
-      <span id='slot-3'></span>
-      </div>      
+</div>
     
   </div>
 
@@ -696,13 +693,21 @@ Traveling,
       var input_array2 = input_str2.split(',');
       var input_array3 = input_str3.split(',');
 
-      var rand1 = input_array1[Math.floor(Math.random()*input_array1.length)];
-      var rand2 = input_array2[Math.floor(Math.random()*input_array2.length)];
-      var rand3 = input_array3[Math.floor(Math.random()*input_array3.length)];
 
-      $('#slot-1').html(rand1);
-      $('#slot-2').html(rand2);
-      $('#slot-3').html(rand3);
+      for (i=0; i < 30; i++){
+        var rand1 = input_array1[Math.floor(Math.random()*input_array1.length)];
+        var rand2 = input_array2[Math.floor(Math.random()*input_array2.length)];
+        var rand3 = input_array3[Math.floor(Math.random()*input_array3.length)];
+
+        var row = "<div class='row' style='display:block'>";
+        row = row + "<span class='slot-1'>" + rand1 + "</span>";
+        row = row + "<b><span class='slot-2'>" + rand2 + "</span></b>";
+        row = row + "<span class='slot-3'>" + rand3 + "</span>";
+        row = row + "</div>"
+
+        $('#slot_machine').append(row);
+      }
+
 
       event.preventDefault();
     })
